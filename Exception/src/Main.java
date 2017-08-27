@@ -7,9 +7,7 @@ public class Main {
         String b[][] = new String[ 3 ][ 4 ];
         String c[][] = new String[ 4 ][ 3 ];
         for ( int i = 0 ; i < a.length ; i++ ) {
-            for ( int j = 0 ; j < a[ i ].length ; j++ ) {
-                a[i][j]="2";
-            }
+            for ( int j = 0 ; j < a[ i ].length ; j++ ) { a[i][j]="2";}
         }
         a[ 0][ 2 ] = "sss";
         System.out.println (arr(a));
