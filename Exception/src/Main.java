@@ -27,7 +27,7 @@ public class Main {
             for (int j = 0; j<arr[i].length; j++){
                     try {
                          sum = sum + Integer.parseInt(arr[i][j]);
-                    }catch (NumberFormatException e){
+                    }catch (NumberFormatException e){//при вставке MyArrayDataException e, не ловит(((
                         System.out.println ("не удалось выполнить преобразование ячейки массива "+"["+i+"]"+"["+j+"]");
                     }
             }
