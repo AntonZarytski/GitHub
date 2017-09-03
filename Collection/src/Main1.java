@@ -5,6 +5,7 @@ public class Main1 {
         phoneBook.add ( "Махонь", 2168033 );
         phoneBook.add ( "Пушкин", 4545434 );
         phoneBook.add ( "Иванов", 14849122 );
+        phoneBook.add ("Сидоров", 56465465);
         phoneBook.add ( "Дудник", 4711904 );
         phoneBook.add ( "Иванов", 2345789 );
         phoneBook.add ( "Титов", 2975454 );
@@ -14,10 +15,7 @@ public class Main1 {
         phoneBook.get ( "Зарицкий" );
         phoneBook.get ("Пупкин");
         phoneBook.get ("Иванов");
-
-
-
-
-
+        phoneBook.get("Сидоров");
+        phoneBook.get("Титов");
     }
 }
