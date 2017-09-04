@@ -25,14 +25,14 @@ public class Frame extends JFrame {
         for(int i = 0; i<jp.length;i++){
             jp[i]=new JPanel();
             add(jp[i]);
-            jp[i].setBackground(new Color(i*10,80+i*15, 20+i*10));
+            jp[i].setBackground(new Color(i*20,100+i*15, 20+i*12));
         }
         jp[0].setLayout(new BorderLayout());
         JTextArea jta = new JTextArea();
         JScrollPane jsb = new JScrollPane(jta);
         jp[0].add(jsb);
 
-        jp[1].setLayout(new FlowLayout());
+        jp[1].setLayout(new GridLayout(3,3));
         JRadioButton[] jrb = new JRadioButton[4];
         ButtonGroup bgr = new ButtonGroup();
         for (int i = 0; i<jrb.length; i++){
@@ -69,7 +69,7 @@ public class Frame extends JFrame {
         jp[3].setLayout(null);
         JSlider js = new JSlider();
         JLabel jlab = new JLabel("Value 50");
-        js.setMaximum(100);
+        js.setMaximum(250);
         js.setMinimum(0);
         js.setValue(50);
         jp[3].add(jlab);
@@ -78,11 +78,12 @@ public class Frame extends JFrame {
             @Override
             public void stateChanged(ChangeEvent e) {
                 jlab.setText("Value: " + js.getValue());
+                js.setBackground(new Color(js.getValue()*(int)(Math.random()), js.getValue()*(int)(Math.random()), js.getValue()*(int)(Math.random())));
             }
         });
         jlab.setBounds(10,10, 100,20);
         js.setBounds(20,40,300,100);
-        js.setBackground(new Color(49,250, 175));
+        //js.setBackground(new Color(49,250, 175));
 
         JMenuBar mainMenu = new JMenuBar();
         JMenu mFile = new JMenu("File");

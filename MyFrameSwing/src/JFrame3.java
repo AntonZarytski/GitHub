@@ -1,40 +1,38 @@
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
-public class JFrame3 extends JFrame {
-
-    private JPanel panel1;
-    private JButton отправитьButton;
-    private JTextField textField2;
-    private JTextArea textArea1;
-    private JRadioButton radioButton1;
-    private JButton button1;
-    private JTextField textField1;
-    private JPasswordField passwordField1;
-    private JButton button2;
-    private JTextField textField3;
-    private JRadioButton radioButton2;
-
+public class JFrame3 extends JFrame{
     public JFrame3(String title){
-        setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         setTitle(title);
-        setBounds(20,20,1024,1024);
-        //setResizable(false);
-        setLayout(new GridBagLayout());
-        GridBagConstraints gbc1 = new GridBagConstraints();
-        gbc1.gridx=100;
-        gbc1.gridy=100;
-        gbc1.gridwidth=200;
-        gbc1.gridheight=500;
+        setBounds(0,0, 640,480);
+        setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 
-        add(panel1);
-        add(отправитьButton);
-        add(textField2,gbc1);
-        add(textArea1,gbc1);
+        setLayout(new BorderLayout());
+        JButton jb = new JButton("кнопа 1");
+        TextField jb1 = new TextField();
+        JTextField tf = new JTextField();
+        add(jb, BorderLayout.WEST);
+        add(jb1, BorderLayout.SOUTH);
+        add(tf, BorderLayout.CENTER);
+        jb.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String s = jb1.getText();
+                tf.setText(s);
+                jb1.setText("");
+            }
+        });
+        jb1.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String s = jb1.getText();
+                tf.setText(s);
+                jb1.setText("");
+            }
+        });
+
         setVisible(true);
-    }
-
-    private void createUIComponents() {
-        // TODO: place custom component creation code here
     }
 }
