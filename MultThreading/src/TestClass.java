@@ -6,8 +6,10 @@ public class TestClass {
     float[] arr= new float[SIZE];
     float[] arr1=new float[H];
     float [] arr2=new float[H];
-    float [] arr3=new float[H];
-    float [] arr4=new float[H];
+    float [] arr3=new float[G];
+    float [] arr4=new float[G];
+    float [] arr5=new float[G];
+    float [] arr6=new float[G];
     public void method1(){
         for(int i = 0; i < arr.length; i++){
             arr[i] = 1;
@@ -46,17 +48,17 @@ public class TestClass {
         System.arraycopy ( arr, G, arr2, 0,G );
         System.arraycopy ( arr, H, arr3, 0,G );
         System.arraycopy ( arr, G*3, arr4, 0,G );
-        for(int i = 0; i < arr1.length; i++){
-            arr1[i] = (float)(arr1[i] * Math.sin(0.2f + i / 5) * Math.cos(0.2f + i / 5) * Math.cos(0.4f + i / 2));;
-        }
-        for(int i = 0; i < arr2.length; i++){
-            arr2[i] = (float)(arr2[i] * Math.sin(0.2f + i / 5) * Math.cos(0.2f + i / 5) * Math.cos(0.4f + i / 2));;
-        }
         for(int i = 0; i < arr3.length; i++){
             arr3[i] = (float)(arr3[i] * Math.sin(0.2f + i / 5) * Math.cos(0.2f + i / 5) * Math.cos(0.4f + i / 2));;
         }
         for(int i = 0; i < arr4.length; i++){
             arr4[i] = (float)(arr4[i] * Math.sin(0.2f + i / 5) * Math.cos(0.2f + i / 5) * Math.cos(0.4f + i / 2));;
+        }
+        for(int i = 0; i < arr5.length; i++){
+            arr5[i] = (float)(arr5[i] * Math.sin(0.2f + i / 5) * Math.cos(0.2f + i / 5) * Math.cos(0.4f + i / 2));;
+        }
+        for(int i = 0; i < arr6.length; i++){
+            arr6[i] = (float)(arr6[i] * Math.sin(0.2f + i / 5) * Math.cos(0.2f + i / 5) * Math.cos(0.4f + i / 2));;
         }
         System.arraycopy ( arr1,0,arr,0,G);
         System.arraycopy ( arr2,0, arr, G, G);
