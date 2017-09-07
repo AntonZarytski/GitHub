@@ -10,10 +10,12 @@ public class JFrame2 extends JFrame {
     JTextField tfMessage;
     JButton jbSend;
 
+
     public JFrame2(String title) {
-        setTitle ( title );
-        setBounds ( 300, 300, 480, 480 );
-        setDefaultCloseOperation ( WindowConstants.EXIT_ON_CLOSE );
+        JFrame jf = new JFrame (  );
+        jf.setTitle ( title );
+        jf.setBounds ( 300, 300, 480, 480 );
+        jf.setDefaultCloseOperation ( WindowConstants.EXIT_ON_CLOSE );
         setResizable ( false );
         gbl = new GridBagLayout ();
         setLayout ( gbl );
@@ -22,7 +24,7 @@ public class JFrame2 extends JFrame {
         c.gridx = 0;//координата начала по x
         c.gridy = 0;//координата начала по y
         c.gridwidth = GridBagConstraints.REMAINDER;// сколько клеток занимает в длинну
-        c.gridheight = 80;// сколько клеток загимает в высоту
+        c.gridheight = 70;// сколько клеток загимает в высоту
         c.weightx = 1.0;//растяжение по x
         c.weighty = 0.8;//растяжение по y
         c.anchor = GridBagConstraints.NORTH;//где будит располагаться
@@ -33,7 +35,7 @@ public class JFrame2 extends JFrame {
         taText = new JTextArea ();//23 25
         taText.setEditable ( false );
         gbl.setConstraints ( taText, c );
-        add ( taText, c );
+        jf.add ( taText, c );
         taText.add ( jl );
         taText.setBackground ( new Color ( 217, 250, 241 ) );
         GridBagConstraints c2 = new GridBagConstraints ( 0, 81, 70, 20, 1.0, 0.02, GridBagConstraints.SOUTHWEST, GridBagConstraints.BOTH, new Insets ( 0, 5, 5, 0 ), 0, 0 );
