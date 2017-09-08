@@ -2,12 +2,15 @@ package secondPlan;
 
 public class Main {
     public static void main(String[] args) {
-       ArrUse.arrTo1(ArrUse.getArr());
-       ArrUse.useArray(ArrUse.getArr());
-       Thread1 thr1 = new Thread1 ();
-       Thread2 thr2 = new Thread2 ();
-       Thread thread1 = new Thread ( thr1 );
-       Thread thread2 = new Thread ( thr2 );
+        ArrUse arrUse = new ArrUse ();
+        long b = System.currentTimeMillis();
+        arrUse.calculateArr (arrUse.getArr());
+        System.out.println("1й метод выполнялся "+ ((System.currentTimeMillis() - b)));
+       Method2 firstPartOfArr = new Method2 ();
+       Method2.SecondArr secondPartOfArr = new Method2.SecondArr ();
+       Thread thread1 = new Thread ( firstPartOfArr);
+       Thread thread2 = new Thread (secondPartOfArr );
+       long a = System.currentTimeMillis();
        thread1.start ();
        thread2.start ();
         try {
@@ -16,6 +19,6 @@ public class Main {
         } catch (InterruptedException e) {
             e.printStackTrace ();
         }
-        System.out.println ("2й метод выполнялся " + thr1.getC ()+thr2.getB ());
+        System.out.println("2й метод выполнялся "+ ((System.currentTimeMillis() - a)));
     }
 }
