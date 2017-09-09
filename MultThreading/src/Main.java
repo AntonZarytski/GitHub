@@ -1,8 +1,7 @@
-package secondPlan;
 
 public class Main {
     public static void main(String[] args) {
-        ArrUse arrUse = new ArrUse ();
+     ArrUse arrUse = new ArrUse ();
         long b = System.currentTimeMillis();
         arrUse.calculateArr (arrUse.getArr());
         System.out.println("1й метод выполнялся "+ ((System.currentTimeMillis() - b)));
