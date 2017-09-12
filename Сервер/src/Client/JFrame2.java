@@ -6,16 +6,13 @@ import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
 import java.net.Socket;
-
-
+import java.net.SocketException;
 
 public class JFrame2 extends JFrame {
     private GridBagLayout gbl;
     private JTextArea taText;
     private JTextField tfMessage;
     private JButton jbSend;
-    private final String SERVER_ADDR = "localhost";
-    private final int SERVER_PORT = 8189;
     private Socket socket;
     private DataInputStream in;
     private DataOutputStream out;
@@ -34,18 +31,7 @@ public class JFrame2 extends JFrame {
         setResizable ( false );
         gbl = new GridBagLayout ();
         setLayout ( gbl );
-        GridBagConstraints c = new GridBagConstraints ();
-        c.gridx = 0;//координата начала по x
-        c.gridy = 0;//координата начала по y
-        c.gridwidth = GridBagConstraints.REMAINDER;// сколько клеток занимает в длинну
-        c.gridheight = 70;// сколько клеток загимает в высоту
-        c.weightx = 1.0;//растяжение по x
-        c.weighty = 0.8;//растяжение по y
-        c.anchor = GridBagConstraints.NORTH;//где будит располагаться
-        c.fill = GridBagConstraints.BOTH;// ориентация
-        c.insets = new Insets ( 5, 5, 0, 5 );// отступы
-        c.ipadx = 0;// масштаб по x
-        c.ipady = 0;// масштаб по y
+        GridBagConstraints c = new GridBagConstraints (0,0,GridBagConstraints.REMAINDER, 70, 1.0,0.8,GridBagConstraints.NORTH, GridBagConstraints.BOTH, new Insets ( 5,5,0,5 ),0,0);
         taText = new JTextArea ();//23 25
         taText.setEditable ( false );
         gbl.setConstraints ( taText, c );
@@ -73,13 +59,13 @@ public class JFrame2 extends JFrame {
         jbSend.addActionListener ( new ActionListener () {
             @Override
             public void actionPerformed(ActionEvent e) {
-                    sendMsg ();
+                sendMsg ();
             }
         } );
         tfMessage.addFocusListener(new FocusAdapter() {
-        @Override
-        public void focusGained(FocusEvent e) {
-            tfMessage.setText("");
+            @Override
+            public void focusGained(FocusEvent e) {
+                tfMessage.setText("");
             }
         });
         Thread thread1 = new Thread ( new Runnable () {
@@ -88,9 +74,16 @@ public class JFrame2 extends JFrame {
                 try{
                     while(true) {
                         synchronized (this) {
-                            String msg = in.readUTF ();
-                            System.out.println ( msg );
-                            taText.append ( msg + "\n" );
+                            try{
+                                String msg = in.readUTF ();
+                                System.out.println ( msg );
+                                taText.append ( msg + "\n" );
+                            }catch (SocketException e){
+                                socket.close ();
+                                out.close ();
+                                in.close ();
+                            }
+
                         }
                     }
                 }catch(IOException e){
