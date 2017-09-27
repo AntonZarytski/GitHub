@@ -10,24 +10,34 @@ public class Main {
     public static void main(String[] args)  {
         try {
             MyDataBase products = new MyDataBase ();
-            System.out.println ("База данных создана");
         } catch (SQLException e) {
             System.out.println ("Не удалось создать базу данных");
             e.printStackTrace ();
         }
         new Thread (()->{
             Scanner sc = new Scanner (System.in);
-            while(true){
-            String cmd = sc.nextLine ();
-                MyDataBase.getCoast ( cmd );
-                /*if (cmd.equalsIgnoreCase ("end")){
+            while(true) {
+                String cmd = sc.nextLine ();
+                //MyDataBase.getCoast ( cmd );
+                if (cmd.equalsIgnoreCase ( "end" )) {
                     MyDataBase.disconect ();
                     break;
                 }
-            if (cmd.startsWith ( "/цена" )) {
-                String elements[] = cmd.split ( " " );
-                MyDataBase.getCoast ( elements[1] );
-            }*/
+                if (cmd.startsWith ( "/цена" )) {
+                    String elements[] = cmd.split ( " " );
+                    MyDataBase.getCost ( elements[ 1 ] );
+                }
+                if (cmd.startsWith ( "/сменитьцену" )) {
+                    String elements[] = cmd.split ( " " );
+                    int el = Integer.parseInt ( elements[ 2 ] );
+                    MyDataBase.changeCost ( elements[ 1 ], el );
+                }
+                if (cmd.startsWith ( "/товарыпоцене" )) {
+                    String elements[] = cmd.split ( " " );
+                    int from = Integer.parseInt ( elements[1]);
+                    int to = Integer.parseInt ( elements[2]);
+                    MyDataBase.sortByPrice ( from,to );
+                }
             }
         } ).start ();
 
