@@ -19,14 +19,15 @@ public class Main {
             Scanner sc = new Scanner (System.in);
             while(true){
             String cmd = sc.nextLine ();
-                if (cmd.equalsIgnoreCase ("end")){
+                MyDataBase.getCoast ( cmd );
+                /*if (cmd.equalsIgnoreCase ("end")){
                     MyDataBase.disconect ();
                     break;
                 }
             if (cmd.startsWith ( "/цена" )) {
                 String elements[] = cmd.split ( " " );
-                MyDataBase.seeCoast ( elements[1] );
-            }
+                MyDataBase.getCoast ( elements[1] );
+            }*/
             }
         } ).start ();
 

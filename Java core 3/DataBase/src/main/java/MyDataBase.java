@@ -21,11 +21,10 @@ public class MyDataBase {
         }
         connection.setAutoCommit ( true );
     }
-    public static void seeCoast(String product){
+    public static void getCoast(String product){
         int coast;
         try {
-            //rs = stmt.executeQuery ( "SELECT 'coast' FROM 'products' WHERE tittle='"+product+"');");
-            rs = stmt.executeQuery ( "SELECT 'coast' FROM 'products' WHERE 'tittle'='"+product+"'");
+            rs = stmt.executeQuery ( "SELECT 'coast' FROM 'products' WHERE 'title'='"+product+"'");
             while (rs.next ()) {
                 coast = rs.getInt ( 1 );
                 System.out.println ( "Цена товара " + product + " " + coast );
