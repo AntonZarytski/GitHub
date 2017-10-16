@@ -28,7 +28,7 @@ public class TestingArray {
         }
         throw new RuntimeException (  );
     }
-    public static boolean testArr(int[] a ){
+    public boolean testArr(int[] a ){
         int summ=0;
         for ( int i = 0 ; i <a.length  ; i++ ) {
             if(a[i]!=4) {
