@@ -6,5 +6,4 @@ import java.lang.annotation.Target;
 @Retention ( RetentionPolicy.RUNTIME )
 @Target (ElementType.METHOD)
 public @interface AfterSuite {
-   int count() default 0;
 }

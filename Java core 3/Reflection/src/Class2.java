@@ -9,7 +9,7 @@ public class Class2 {
         System.out.println ("The first class2`s method is tested");
     }
 
-    @Test
+    @Test(priority = 5)
     public void testing2(){
         System.out.println ("The second class2`s method is tested");
     }
@@ -23,4 +23,9 @@ public class Class2 {
     public void finishing(){
         System.out.println ("Class2 testing is complited");
     }
+
+ /*   @AfterSuite
+    public void finishing1(){
+        System.out.println ("Class2 testing1 is complited");
+    }*/
 }

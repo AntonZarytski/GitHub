@@ -9,7 +9,7 @@ public class Class1 {
         System.out.println ("The first class1`s method is tested");
     }
 
-    @Test
+    @Test(priority = 5)
     public void testing2(){
         System.out.println ("The second class1`s method is tested");
     }
