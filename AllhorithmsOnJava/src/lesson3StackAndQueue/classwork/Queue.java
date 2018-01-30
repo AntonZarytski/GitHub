@@ -48,5 +48,41 @@ public class Queue {
     public int peek(){
         return queue[head];
     }
+
+    public int[] getQueue() {
+        return queue;
+    }
+
+    public void setSize(int size) {
+        this.size = size;
+    }
+
+    public int getHead() {
+        return head;
+    }
+
+    public int getTail() {
+        return tail;
+    }
+
+    public void setItems(int items) {
+        this.items = items;
+    }
+
+    public void setQueue(int[] queue) {
+        this.queue = queue;
+    }
+
+    public void setHead(int head) {
+        this.head = head;
+    }
+
+    public void setTail(int tail) {
+        this.tail = tail;
+    }
+
+    public int getItems() {
+        return items;
+    }
 }
 
