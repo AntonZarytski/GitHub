@@ -1,4 +1,4 @@
-package lesson4LinkedSets.classwork;
+package lesson4LinkedSets.homework;
 
 public class Node{
     public String name;
